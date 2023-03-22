@@ -1,5 +1,5 @@
 
-# ViriCiti Random Vehicle Data Generator!
+# Random Vehicle Data Generator!
 ![](https://imgs.xkcd.com/comics/random_number.png)
 
 This is the  ViriCiti Random Vehicle Data Generator or VRVDG (read ver-ved-geh) in short.
