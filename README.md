@@ -28,7 +28,7 @@ https://github.com/tengen-systems/nodejs-assignment
 ## The Assignment
 We have provided you with a starter kit that broadcast vehicle data to NATS. This is all setup for you. The architecture that you need to build is below:
 
-![](https://github.com/tengen/nodejs-assignment/raw/master/uml.png)
+![](https://github.com/tengen-systems/nodejs-assignment/blob/master/uml.png)
 
 ### Broadcast Server
 The first rectangle on the left is the vehicle data broadcast server, it's already built and you can find the code on `./src/vehicle-data-generator/index.js`. You can run it with `npm run start-broadcast` then it will start to push data into NATS. In that file you can find some interesting question for you to answer if you want, and also some smaller side task (Not required) to make this assignment a little bit more interesting.
