@@ -1,11 +1,4 @@
 
-/*
-
-In this file you will find how we send raw data to other services via nats
-There are 2 question points for you to tell us the answer on your presentation
-If you're up for it
-
-*/
 const csvParse      = require ( "csv-parse")
 const fs            = require ( "fs")
 const Writable      = require ("stream").Writable
@@ -29,14 +22,14 @@ const readOutLoud = (vehicleName) => {
 	const fileStream = fs.createReadStream("./meta/route.csv")
 	// =========================
 	// Question Point 1:
-	// What's the difference betweeen fs.createReadStream, fs.readFileSync, and fs.readFileAsync?
+	// What's the difference between fs.createReadStream, fs.readFileSync, and fs.readFileAsync?
 	// And when to use one or the others
 	// =========================
 
 	// Now comes the interesting part,
 	// Handling this filestream requires us to create pipeline that will transform the raw string
 	// to object and sent out to nats
-	// The pipeline should looks like this
+	// The pipeline should look like this
 	//
 	//  File -> parse each line to object -> published to nats
 	//
@@ -44,8 +37,9 @@ const readOutLoud = (vehicleName) => {
 	let i = 0
 
 	return (fileStream
-		// Filestream piped to csvParse which accept nodejs readablestreams and parses each line to a JSON object
+		// Filestream piped to csvParse which accept nodejs readable-streams and parses each line to a JSON object
 		.pipe(csvParse({ delimiter: ",", columns: true, cast: true }))
+
 		// Then it is piped to a writable streams that will push it into nats
 		.pipe(new Writable({
 			objectMode: true,
@@ -59,25 +53,29 @@ const readOutLoud = (vehicleName) => {
 					if((i % 100) === 0)
 						console.log(`vehicle ${vehicleName} sent have sent ${i} messages`)
 
-					// The first parameter on this function is topics in which data will be broadcasted
-					// it also includes the vehicle name to seggregate data between different vehicle
+					// The first parameter on this function is topics in which data will be broadcast
+					// it also includes the vehicle name to segregate data between different vehicle
 
 					nats.publish(`vehicle.${vehicleName}`, obj, cb)
 
 				}, Math.ceil(Math.random() * 150))
 			}
 		})))
+	
 	// =========================
 	// Question Point 2:
-	// What would happend if it failed to publish to nats or connection to nats is slow?
+	// What would happen if it failed to publish to nats or connection to nats is slow?
 	// Maybe you can try to emulate those slow connection
 	// =========================
 }
 
-// This next few lines simulate Henk's (our favorite driver) shift
-console.log("Henk checks in on test-bus-1 starting his shift...")
-readOutLoud("test-bus-1")
-	.once("finish", () => {
-		console.log("henk is on the last stop and he is taking a cigarrete while waiting for his next trip")
-	})
-// To make your presentation interesting maybe you can make henk drive again in reverse
+// This next few lines simulate Henry's (our favorite driver) shift
+function doTelemetry() {
+	console.log("Henk checks in on test-bus-1 starting his shift...")
+	readOutLoud("test-bus-1")
+		.once("finish", () => {
+			console.log("henk is on the last stop and he is taking a smoke break while waiting for his next trip")
+		})
+}
+
+doTelemetry();
