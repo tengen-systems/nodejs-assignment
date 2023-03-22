@@ -1,33 +1,26 @@
-# ViriCiti Nodejs Assignment
+# Nodejs Assignment
 ![
 ](https://imgs.xkcd.com/comics/code_quality_3.png)
 
-This repository holds the ViriCiti Nodejs assignment. In this project you will find the description regarding the assignment for you to do. This assignment represent what we do on a day to day basis. We receive raw data from vehicles store it on database then send it to browser app via websocket.
+This repository holds a Nodejs assignment. In this project you will find the description regarding the assignment for you to do. This assignment represent what we do on a day to day basis. We receive raw data from vehicles store it on database then send it to browser app via websocket.
 
 ## Getting Started
-First of all, fork the repository at:
+1) Clone the repo from
+https://github.com/tengen-systems/nodejs-assignment
 
-`https://github.com/viriciti/nodejs-assignment`
-
-Then open up your terminal and clone the forked repository
-
-<sup>Replace [YOUR_USERNAME] with your name</sup>
-
-`git clone https://github.com/[YOUR_USERNAME]/nodejs-assignment.git`
-
-Enter the directory
+2) Enter the directory
 
 `cd nodejs-assignment`
 
-Install all the dependencies
+3) Install all the dependencies
 
 `npm i`
 
-Run [NATS](https://nats.io/) on a docker container (make sure that you've [installed docker](https://docs.docker.com/install/))
+3) Run [NATS](https://nats.io/) on a docker container (make sure that you've [installed docker](https://docs.docker.com/install/))
 
 `npm run start-nats`
 
-Run the project
+4) Run the project
 
 `npm run start-broadcast`
 
@@ -35,7 +28,7 @@ Run the project
 ## The Assignment
 We have provided you with a starter kit that broadcast vehicle data to NATS. This is all setup for you. The architecture that you need to build is below:
 
-![](https://github.com/viriciti/nodejs-assignment/raw/master/uml.png)
+![](https://github.com/tengen/nodejs-assignment/raw/master/uml.png)
 
 ### Broadcast Server
 The first rectangle on the left is the vehicle data broadcast server, it's already built and you can find the code on `./src/vehicle-data-generator/index.js`. You can run it with `npm run start-broadcast` then it will start to push data into NATS. In that file you can find some interesting question for you to answer if you want, and also some smaller side task (Not required) to make this assignment a little bit more interesting.
@@ -90,6 +83,4 @@ Looking to level up your knowledge and skills? These are some good articles/cour
 * Learn [Node.js and it's modules](http://nodeschool.io/#workshoppers)
 
 ## Questions
-If you have any questions about the assignment or project setup feel free to contact us at <a href='mailto:s.surur@viriciti.com'>s.surur@viriciti.com</a>. You can also come by the office. We're always ready to help.
-
-Good luck with the assignment!
+Good luck!
