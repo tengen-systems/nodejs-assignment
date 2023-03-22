@@ -70,12 +70,8 @@ const readOutLoud = (vehicleName) => {
 }
 
 // This next few lines simulate Henry's (our favorite driver) shift
-function doTelemetry() {
-	console.log("Henk checks in on test-bus-1 starting his shift...")
-	readOutLoud("test-bus-1")
-		.once("finish", () => {
-			console.log("henk is on the last stop and he is taking a smoke break while waiting for his next trip")
-		})
-}
-
-doTelemetry();
+console.log("Henry checks in on test-bus-1 starting his shift...")
+readOutLoud("test-bus-1")
+	.once("finish", () => {
+		console.log("Henry is on the last stop and he is taking a smoke break while waiting for his next trip")
+	})
