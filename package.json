@@ -5,12 +5,25 @@
   "main": "index.js",
   "scripts": {
     "start-nats": "sh ./start-nats",
-    "start-broadcast": "node vehicle-data-generator/index.js"
+    "start-broadcast": "node vehicle-data-generator/index.js",
+    "start-api-server": "node server.js",
+    "dev": "concurrently -n \"broadcast,api\" \"npm run start-broadcast\" \"npm run start-api-server\" ",
+    "test-api-server": "mocha --timeout 10000"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "csv-parse": "^3.2.0",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.2",
+    "morgan": "^1.10.0",
     "nats": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "concurrently": "^7.6.0",
+    "mocha": "^10.2.0"
   }
 }
