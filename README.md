@@ -40,11 +40,11 @@ The first rectangle on the left is the vehicle data broadcast server, it's alrea
 
 After data is pushed to NATS it will be available for other services to listen. Now comes the part where you will have to start develop. Data that is broadcast-ed to NATS is not persisted, it means that we can not access historical data (such as data from past weeks) your task is to build a data storage server that will store all data in [MongoDB](https://www.mongodb.com/) and then serve it via an HTTP REST API and a WebSocket server for live data. So to summarize it here by the checklist of task you need to do:
 
-- [ X ] Push data from NATS to MongoDB (mongodb+srv://lpreng:password!@node-nats.je1rsnn.mongodb.net/)
-- [ X ] Create REST API
+- [x] Push data from NATS to MongoDB (mongodb+srv://lpreng:password!@node-nats.je1rsnn.mongodb.net/)
+- [x] Create REST API
 - [ ] Create WebSocket API
-- [ X ] Test all APIs
-- [ X ] Create Docker container for app (Optional)
+- [x] Test all APIs
+- [x] Create Docker container for app (Optional)
 
 ### Incident Reporting (Optional)
 
